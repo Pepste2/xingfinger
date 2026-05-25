@@ -99,14 +99,18 @@ func NewScannerWithPolicy(urls []string, thread int, output, proxy string, timeo
 	var err error
 
 	// 初始化默认指纹引擎（除非禁用）
+	// 注意：fingers v1.2.0 的 wappalyzer 引擎有 bug（js 字段格式不兼容）
+	// 暂时排除 wappalyzer，使用其他 6 个引擎
+	// AllEngines: fingers, fingerprinthub, wappalyzer, ehole, goby, nmap, favicon
+	defaultEngines := []string{"fingers", "fingerprinthub", "ehole", "goby", "nmap", "favicon"}
 	if !noDefault {
 		if silent || jsonOutput {
 			err = withSilentStdout(func() error {
-				engine, err = fingers.NewEngine()
+				engine, err = fingers.NewEngine(defaultEngines...)
 				return err
 			})
 		} else {
-			engine, err = fingers.NewEngine()
+			engine, err = fingers.NewEngine(defaultEngines...)
 		}
 		if err != nil {
 			fmt.Printf("[!] 初始化默认指纹引擎失败: %v\n", err)

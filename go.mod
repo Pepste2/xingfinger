@@ -3,12 +3,12 @@ module github.com/yyhuni/xingfinger
 go 1.26.0
 
 require (
-	github.com/chainreactors/fingers v1.1.0
+	github.com/chainreactors/fingers v1.2.0
 	github.com/gookit/color v1.4.2
 	github.com/spaolacci/murmur3 v1.1.0
 	github.com/spf13/cobra v1.3.0
 	github.com/yinheli/mahonia v0.0.0-20131226213531-0eef680515cc
-	golang.org/x/net v0.21.0
+	golang.org/x/net v0.50.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
@@ -17,7 +17,7 @@ require (
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
 	github.com/chainreactors/files v0.0.0-20240716182835-7884ee1e77f0 // indirect
 	github.com/chainreactors/logs v0.0.0-20241030063019-8ca66a3ee307 // indirect
-	github.com/chainreactors/neutron v0.0.0-20251216154716-7c28cb6fdf03 // indirect
+	github.com/chainreactors/neutron v0.0.0-20260203032004-95c9e8431214 // indirect
 	github.com/chainreactors/utils v0.0.0-20250831165528-f06246b0f311 // indirect
 	github.com/chainreactors/words v0.0.0-20241002061906-25d8893158d9 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
@@ -30,10 +30,17 @@ require (
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/mozillazg/go-pinyin v0.20.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/richardlehane/mscfb v1.0.6 // indirect
+	github.com/richardlehane/msoleps v1.0.6 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/tiendc/go-deepcopy v1.7.2 // indirect
 	github.com/twmb/murmur3 v1.1.8 // indirect
 	github.com/weppos/publicsuffix-go v0.15.1-0.20220329081811-9a40b608a236 // indirect
 	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
-	golang.org/x/sys v0.21.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
+	github.com/xuri/efp v0.0.1 // indirect
+	github.com/xuri/excelize/v2 v2.10.1 // indirect
+	github.com/xuri/nfp v0.0.2-0.20250530014748-2ddeb826f9a9 // indirect
+	golang.org/x/crypto v0.48.0 // indirect
+	golang.org/x/sys v0.41.0 // indirect
+	golang.org/x/text v0.34.0 // indirect
 )

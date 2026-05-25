@@ -63,7 +63,7 @@ func init() {
 	// 扫描参数
 	rootCmd.Flags().IntVarP(&thread, "thread", "t", 50, "并发线程数")
 	rootCmd.Flags().IntVar(&timeout, "timeout", 10, "请求超时时间（秒）")
-	rootCmd.Flags().StringVarP(&output, "output", "o", "", "输出文件路径（JSON 格式）")
+	rootCmd.Flags().StringVarP(&output, "output", "o", "", "输出文件路径（支持 .json/.csv/.xlsx，CSV/XLSX 只输出存活目标）")
 	rootCmd.Flags().StringVarP(&proxy, "proxy", "p", "", "代理地址")
 	rootCmd.Flags().BoolVarP(&silent, "silent", "s", false, "静默模式，只输出命中结果")
 	rootCmd.Flags().BoolVarP(&jsonOutput, "json", "j", false, "终端输出 JSON 格式")
