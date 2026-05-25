@@ -13,14 +13,46 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
+// ensureDir 确保文件所在的目录存在
+// 如果目录不存在，则自动创建
+//
+// 参数：
+//   - filename: 文件路径
+//
+// 返回：
+//   - error: 创建目录的错误
+func ensureDir(filename string) error {
+	dir := filepath.Dir(filename)
+	if dir == "" || dir == "." {
+		return nil // 当前目录，无需创建
+	}
+
+	// 检查目录是否存在
+	if _, err := os.Stat(dir); os.IsNotExist(err) {
+		// 创建目录（包括所有父目录）
+		if err := os.MkdirAll(dir, 0755); err != nil {
+			return fmt.Errorf("创建目录失败: %v", err)
+		}
+		fmt.Printf("[*] 已创建目录: %s\n", dir)
+	}
+	return nil
+}
+
 // saveResults 保存扫描结果到文件
 // 根据文件扩展名自动选择格式：.json, .csv, .xlsx
 // 对于 CSV 和 XLSX 格式，只输出存活目标（命中指纹的）
+// 支持跨路径输出，自动创建不存在的目录
 //
 // 参数：
 //   - filename: 输出文件路径
 //   - results: 指纹识别结果切片
 func saveResults(filename string, results []Result) {
+	// 确保目录存在
+	if err := ensureDir(filename); err != nil {
+		fmt.Printf("[!] %v\n", err)
+		return
+	}
+
 	ext := strings.ToLower(filepath.Ext(filename))
 
 	switch ext {
